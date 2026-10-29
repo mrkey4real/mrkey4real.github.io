@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zixuan Qi</title>
+<meta name="description" content="Zixuan Qi, PhD student at Texas A&amp;M. Controls, data, and AI agents for real houses.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">Zixuan Qi</a>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="notes/">Notes</a>
+      <a href="#people">People</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Zixuan Qi</h1>
+      <p class="lead">Hi, I'm Zixuan. I'm a PhD student in mechanical engineering at Texas A&amp;M. Most of my time goes into two small research houses on the RELLIS campus. I wrote the controller that's meant to carry one of them through a blackout on solar and battery power, I look after the data coming out of both, and lately I've been trying to get AI agents to do the boring engineering work a house needs, like checking sensors and fitting models.</p>
+      <p class="sub">I'd rather build something that runs in a real house than something that only looks good in a paper.</p>
+      <div class="links">
+        <a class="btn" href="mailto:qizixuan@tamu.edu">qizixuan@tamu.edu</a>
+        <a class="btn" href="https://github.com/mrkey4real">GitHub</a>
+        <a class="btn" href="https://hvac.engr.tamu.edu/tamscht">The test houses</a>
+      </div>
+      <p class="callout">I'm looking for a Summer 2027 internship in home energy, HVAC controls, or IoT.</p>
+    </div>
+    <figure>
+      <img src="assets/img/homes.jpg" alt="Two single-story research houses side by side on an open field" width="1600" height="1200">
+      <figcaption>The two houses of the <a href="https://hvac.engr.tamu.edu/tamscht">Texas A&amp;M Smart and Connected Homes Testbed (TAM-SCHT)</a>.</figcaption>
+    </figure>
+  </div>
+
+  <section id="skills">
+    <h2>What I'm good at</h2>
+    <ul class="skills">
+      <li><strong>Control.</strong> Model predictive control for heat pumps, batteries, and household loads.</li>
+      <li><strong>Real hardware.</strong> Thermostats, inverters, sensors, Home Assistant, Raspberry Pi.</li>
+      <li><strong>Data.</strong> Getting readings from devices into the cloud, with dashboards and alerts.</li>
+      <li><strong>AI for buildings.</strong> Time-series models, and LLM agents that work on building data.</li>
+      <li><strong>Simulation.</strong> EnergyPlus, including big batches on an HPC cluster.</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="assets/img/pv-array.jpg" alt="Ground-mounted solar panels next to the test houses" loading="lazy" width="1600" height="651">
+        <div class="body">
+          <span class="tag">Field-tested</span>
+          <h3>Getting through a blackout</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>When the grid goes down, a house with solar and a battery has to make its stored energy last.</dd>
+            <dt>What I did</dt><dd>Wrote the controller that decides when the heat pump and other loads run, and tested it in one of our houses.</dd>
+            <dt>Status</dt><dd>Field-tested in fall 2026, paper in progress. Part of a DOE project led by Slipstream.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/img/daq-desk.jpg" alt="Data-acquisition computer and sensor cabinet inside a test house" loading="lazy" width="1600" height="1200">
+        <div class="body">
+          <span class="tag">Running daily</span>
+          <h3>Data from two research houses</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>Readings from our two houses kept getting lost on the way to the database.</dd>
+            <dt>What I did</dt><dd>Took over the data system for about 300 sensor points and rebuilt how readings reach the cloud, with alerts when anything stops.</dd>
+            <dt>Status</dt><dd>Running. The field tests in both houses use its data.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/img/west-bedroom.jpg" alt="Bedroom of a test house with sensors on the walls" loading="lazy" width="1600" height="1200">
+        <div class="body">
+          <span class="tag">Ongoing</span>
+          <h3>A smart home for dementia care</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>Families caring for someone with dementia want to know about falls without watching a camera all day.</dd>
+            <dt>What I did</dt><dd>Set up the smart-home system in a test house and wrote the piece that reads fall alerts from ceiling radars.</dd>
+            <dt>Status</dt><dd>Field tests started in fall 2026. Funded by Texas A&amp;M Health.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/img/homes-hill.jpg" alt="The two research houses seen from a small hill" loading="lazy" width="1600" height="1200">
+        <div class="body">
+          <span class="tag">Ongoing</span>
+          <h3>One model for many homes</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>Every home's HVAC behaves a bit differently, so models usually need data from each home first.</dd>
+            <dt>What I'm doing</dt><dd>Training one model on thousands of simulated homes so it can handle homes it has never seen.</dd>
+            <dt>Status</dt><dd>In progress.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/img/living-room.jpg" alt="Living room of a test house with comfort sensors on tripods" loading="lazy" width="1600" height="1200">
+        <div class="body">
+          <span class="tag">Published</span>
+          <h3>An LLM that sees what you're doing</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>A thermostat doesn't know if you're asleep, cooking, or working out.</dd>
+            <dt>What I did</dt><dd>Had a multimodal LLM read what the person is doing from video and pass that to the controller.</dd>
+            <dt>Status</dt><dd>In simulation it cut HVAC electricity by 60% compared with the same controller on default schedules. <a href="https://doi.org/10.1016/j.adapen.2026.100283">Published in 2026</a>.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/img/mech-room.jpg" alt="Mechanical room of a test house with the inverter, battery, and wiring" loading="lazy" width="1200" height="1600">
+        <div class="body">
+          <span class="tag">Ongoing</span>
+          <h3>AI agents as building engineers</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>Buildings need routine engineering work, and most homes have no engineer.</dd>
+            <dt>What I'm doing</dt><dd>Testing whether a general AI agent can do that work on a real house's data.</dd>
+            <dt>Status</dt><dd>Early pilot runs, fall 2026.</dd>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <p class="aside">I also put two small open-source tools on <a href="https://buildrixhub.onrender.com/">Buildrix</a>, a hub of building-engineering tools for AI agents: one fits <a href="https://buildrixhub.onrender.com/#/skills/SSIM-0001">heat-pump performance curves</a>, the other runs <a href="https://buildrixhub.onrender.com/#/skills/SCTL-0003">EnergyPlus co-simulation</a> from Python.</p>
+  </section>
+
+  <section id="notes">
+    <h2>Notes</h2>
+    <p class="aside">What I'm working on, and the occasional complaint.</p>
+    <!-- NOTES:START -->
+  <ul class="notes">
+    <li><a href="notes/2026-10-28-real-houses.html">Real houses, not just simulated ones</a> <span class="when">Oct 28, 2026</span><p>My HVAC model learned everything it knows from simulated houses. At group meeting the feedback was simple: test it on more real ones. Fair.</p></li>
+    <li><a href="notes/2026-10-25-free-brokers.html">Free brokers are free until Sunday afternoon</a> <span class="when">Oct 25, 2026</span><p>Our two research houses were sending data through a free public MQTT broker. On Sunday it went down for four and a half hours, and so did most of our data.</p></li>
+  </ul>
+  <!-- NOTES:END -->
+    <p><a href="notes/">All notes →</a></p>
+  </section>
+
+  <section id="people">
+    <h2>People I work with</h2>
+    <ul class="people">
+      <li><strong>Advisor.</strong> Prof. Zheng O'Neill, <a href="https://hvac.engr.tamu.edu/">Building Energy and HVAC&amp;R Research Group</a>, Texas A&amp;M.</li>
+      <li><strong>Co-authors at Texas A&amp;M.</strong> Zhiyao Yang, Gang Jiang, and Mingzhe Liu.</li>
+      <li><strong>Collaborators.</strong> Teresa Wu and Fulin Cai at Arizona State, Jin Wen at Penn State, Xuemei Zhu at the Texas A&amp;M College of Architecture, and Zixin Jiang and Bing Dong on Buildrix.</li>
+      <li><strong>Industry partners.</strong> Slipstream, ACE IoT Solutions, and Daikin.</li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="pubs prose">
+      <li><strong>Z. Qi</strong>, Z. Yang, M. Liu, Z. O'Neill. Energy-efficient HVAC control in residential buildings through occupant intention inference with multimodal large language models. <em>Advances in Applied Energy</em> 23 (2026) 100283. <a href="https://doi.org/10.1016/j.adapen.2026.100283">doi</a></li>
+      <li><strong>Z. Qi</strong>, R. Jin, J. Li, H. Guan, P. Xu. BIM-based automated multi-air distribution layout generation for office buildings: a case study. <em>Buildings</em> 13 (2023) 1819. <a href="https://doi.org/10.3390/buildings13071819">doi</a></li>
+    </ol>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="edu prose">
+      <li><span><strong>Texas A&amp;M University</strong>, PhD, Mechanical Engineering</span><span class="when">2024 to now</span></li>
+      <li><span><strong>Tongji University</strong>, MS, Heat, Gas Supply, Ventilating and Air Conditioning Engineering</span><span class="when">2021 to 2024</span></li>
+      <li><span><strong>Chongqing University</strong>, BEng, Building Environment and Energy Engineering</span><span class="when">2017 to 2021</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Zixuan Qi · <a href="mailto:qizixuan@tamu.edu">qizixuan@tamu.edu</a> · <a href="https://github.com/mrkey4real">GitHub</a> · <a href="https://hvac.engr.tamu.edu/tamscht">TAM-SCHT</a></p>
+  </div>
+</footer>
+</body>
+</html>
