@@ -58,10 +58,10 @@
         <img class="fig" src="assets/img/llm-occ-overview.jpg" alt="Diagram from the paper: camera footage goes to an LLM module that infers occupant intention and sends schedules to an MPC module controlling the HVAC" loading="lazy" width="1600" height="1010">
         <div class="body">
           <span class="tag">Published</span>
-          <h3>An LLM that sees what you're doing</h3>
+          <h3>An LLM that sees what you're about to do</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>A thermostat follows a fixed schedule. It can't tell whether you're asleep, cooking, or working out.</dd>
-            <dt>What I did</dt><dd>Designed and built a system that pairs a multimodal LLM with MPC. The LLM watches camera footage, works out what the occupant is doing and is about to do, and turns that into schedules for metabolic rate, clothing, appliances, and windows. The MPC then plans the heat pump using an RC model of the rooms fitted from measured data and a heat pump model fitted from catalog data.</dd>
+            <dt>Problem</dt><dd>What people intend to do next, such as cooking, working out, or taking a nap, changes how warm they want the room, which appliances they run, and what they expect from the HVAC. Presence sensors can tell that someone is home but not what they are about to do, so controllers often fall back on fixed schedules.</dd>
+            <dt>What I did</dt><dd>Designed and built a system that pairs a multimodal LLM with MPC. The LLM watches camera footage and infers what the occupant intends to do next. It turns that into predictions of metabolic rate, clothing, appliance use, and window state. The MPC plans the heat pump with these predictions, an RC model of the rooms fitted from measured data, and a heat pump model fitted from catalog data.</dd>
             <dt>Status</dt><dd>Published as first author in <a href="https://doi.org/10.1016/j.adapen.2026.100283"><em>Advances in Applied Energy</em>, 2026</a>. In a simulation driven by 13 hours of real video, it cut HVAC electricity by 60% and discomfort (unmet degree-hours) by 48%, compared with the same MPC on standard U.S. Department of Energy (DOE) schedules.</dd>
           </dl>
         </div>
@@ -151,8 +151,8 @@
       <figure><img src="assets/img/pv-array.jpg" alt="Ground-mounted solar panels next to the test houses" loading="lazy" width="1000" height="407"><figcaption>The solar array.</figcaption></figure>
       <figure><img src="assets/img/mech-room.jpg" alt="Mechanical room of a test house with the inverter, battery, and wiring" loading="lazy" width="750" height="1000"><figcaption>Inverter and battery.</figcaption></figure>
       <figure><img src="assets/img/daq-desk.jpg" alt="Data-acquisition computer and sensor cabinet inside a test house" loading="lazy" width="1000" height="750"><figcaption>The data acquisition station.</figcaption></figure>
-      <figure><img src="assets/img/living-room.jpg" alt="Living room of a test house with comfort sensors on tripods" loading="lazy" width="1000" height="750"><figcaption>Comfort sensors in the living room.</figcaption></figure>
-      <figure><img src="assets/img/west-bedroom.jpg" alt="Bedroom of a test house with sensors on the walls" loading="lazy" width="1000" height="750"><figcaption>Sensors on the bedroom walls.</figcaption></figure>
+      <figure><img src="assets/img/living-room.jpg" alt="Living room of a test house" loading="lazy" width="1000" height="750"><figcaption>The living room.</figcaption></figure>
+      <figure><img src="assets/img/west-bedroom.jpg" alt="Bedroom of a test house" loading="lazy" width="1000" height="750"><figcaption>A bedroom.</figcaption></figure>
     </div>
   </section>
 
