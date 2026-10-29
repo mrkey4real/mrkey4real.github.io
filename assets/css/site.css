@@ -149,6 +149,8 @@ section > h2 + .aside { margin: -8px 0 10px; }
 
 /* Lists */
 .pubs li { margin-bottom: 12px; }
+.list-head { font-size: 13px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: var(--muted); margin: 22px 0 8px; }
+section > h2 + .list-head { margin-top: 0; }
 .edu { list-style: none; padding: 0; margin: 0; }
 .edu li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
 .edu .when { white-space: nowrap; }
