@@ -24,7 +24,7 @@
   <div class="hero">
     <div>
       <h1>Zixuan Qi</h1>
-      <p class="lead">Hi, I'm Zixuan, a PhD student in mechanical engineering at Texas A&amp;M. I work on home energy systems, from the sensors on the wall to the decision about when the heat pump runs. I build models of heat pumps and rooms, write optimization-based controllers, connect them to real thermostats, inverters, and relays, and field-test them in one of the two research houses our group runs. I also run the data system behind both houses. On the artificial intelligence (AI) side, I work on multimodal large language models (LLMs) that understand what occupants are doing, a foundation model for home heating and cooling data, and AI agents that take on routine engineering work.</p>
+      <p class="lead">Hi, I'm Zixuan, a PhD student in mechanical engineering at Texas A&amp;M. I work on home energy systems, from the sensors on the wall to the decision about when the heat pump runs. I build models of heat pumps and rooms, write optimization-based controllers, connect them to real thermostats, inverters, and relays, and field-test them in one of the two research houses our group runs. I also built and run the data system behind both houses. On the artificial intelligence (AI) side, I work on multimodal large language models (LLMs) that understand what occupants are doing, a foundation model for home heating and cooling data, and AI agents that take on routine engineering work.</p>
       <p class="lead">Before Texas A&amp;M, I spent seven years studying heating, ventilation, and air conditioning (HVAC) and building energy at Chongqing University and Tongji University.</p>
       <p class="sub">I'd rather build something that runs in a real house than something that only looks good in a paper.</p>
       <div class="links">
@@ -73,7 +73,7 @@
           <h3>Getting through a blackout</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>When the grid goes down, a home with solar and a battery has to make its stored energy last and still keep the house livable.</dd>
-            <dt>What I did</dt><dd>Rewrote the project's MPC code. Every 15 minutes it solves a MILP that plans the next 12 hours for the heat pump and other household loads, using an RC model of the house, heat pump performance curves, and the battery's charge. It runs the heat pump through the Daikin API and switches a stand-in household load with a relay on a Raspberry Pi.</dd>
+            <dt>What I did</dt><dd>Built the MPC controller. Every 15 minutes it solves a MILP that plans the next 12 hours for the heat pump and other household loads, using an RC model of the house, heat pump performance curves, and the battery's charge. It runs the heat pump through the Daikin API and switches a stand-in household load with a relay on a Raspberry Pi.</dd>
             <dt>Status</dt><dd>Field-tested for three days in one of our houses in September 2026. Paper in progress. Part of a DOE-funded project led by Slipstream.</dd>
           </dl>
         </div>
@@ -96,8 +96,8 @@
           <span class="tag">Running daily</span>
           <h3>One database for two research houses</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>Each house runs several data systems, each with its own format, and many readings never reached the database.</dd>
-            <dt>What I did</dt><dd>Rebuilt and now run the pipeline that integrates the houses' sensor systems into one database: LabVIEW data acquisition with more than 200 sensors, Sol-Ark inverters, eGauge power meters, and Daikin thermostats. Readings land in InfluxDB with Grafana dashboards. I redesigned the LabVIEW upload, moved it to our own MQTT server, added the second house's thermostat, and wrote a watchdog that emails us when any stream stops.</dd>
+            <dt>Problem</dt><dd>Each house runs several data systems, each with its own format, and readings are easy to lose between them.</dd>
+            <dt>What I did</dt><dd>Built and run the pipeline that integrates the houses' sensor systems into one database: LabVIEW data acquisition with more than 200 sensors, Sol-Ark inverters, eGauge power meters, and Daikin thermostats. Readings land in InfluxDB with Grafana dashboards. I designed the LabVIEW upload, set up our own MQTT server, and wrote a watchdog that emails us when any stream stops.</dd>
             <dt>Status</dt><dd>Running every day. Our field tests use its data.</dd>
           </dl>
         </div>
