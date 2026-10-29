@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title">
+<title id="title">LabVIEW data arrives over MQTT, and Sol-Ark, eGauge, and Daikin data come through vendor APIs, all into InfluxDB</title>
+<style>
+.bg { fill: #f7f4f0; }
+.box { fill: #ffffff; stroke: #cfc9c0; stroke-width: 3; }
+.flow { fill: none; stroke: #8a8f95; stroke-width: 3; }
+.head { fill: #8a8f95; }
+.hub { fill: #f3e3e5; stroke: #7a1f2b; stroke-width: 3.5; }
+.db { fill: #e4ebf7; stroke: #1f4fa3; stroke-width: 3.5; }
+text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+.label { fill: #1d1d1f; font-size: 34px; font-weight: 600; }
+.hubtext { fill: #7a1f2b; font-size: 24px; font-weight: 700; }
+.dbtext { fill: #1d1d1f; font-size: 30px; font-weight: 700; }
+.sub { fill: #5f6368; font-size: 27px; font-weight: 600; }
+.d1 { fill: #7a1f2b; } .d2 { fill: #1f4fa3; } .d3 { fill: #2e7d5b; } .d4 { fill: #b26a00; }
+@media (prefers-color-scheme: dark) {
+  .bg { fill: #1f2124; }
+  .box { fill: #26292d; stroke: #3a3e43; }
+  .flow { stroke: #7d838a; }
+  .head { fill: #7d838a; }
+  .hub { fill: #3a2529; stroke: #e3929c; }
+  .db { fill: #1e2a40; stroke: #8fb4ff; }
+  .label, .dbtext { fill: #e8e6e3; }
+  .hubtext { fill: #e3929c; }
+  .sub { fill: #a1a5ab; }
+  .d1 { fill: #e3929c; } .d2 { fill: #8fb4ff; } .d3 { fill: #7fd1a8; } .d4 { fill: #f0b45c; }
+}
+</style>
+<rect class="bg" width="800" height="500"/>
+<path class="flow" d="M296 82 H396"/>
+<path class="flow" d="M296 180 C346 180 346 278 396 278"/>
+<path class="flow" d="M296 278 H396"/>
+<path class="flow" d="M296 376 C346 376 346 278 396 278"/>
+<path class="flow" d="M484 82 C536 82 536 196 566 196"/>
+<path class="head" d="M582 196 L564 186 L564 206 Z"/>
+<path class="flow" d="M484 278 C530 278 536 262 566 262"/>
+<path class="head" d="M582 262 L564 252 L564 272 Z"/>
+<rect class="box" x="36" y="42" width="260" height="80" rx="16"/>
+<circle class="d1" cx="68" cy="82" r="8"/>
+<text class="label" x="88" y="94">LabVIEW</text>
+<rect class="box" x="36" y="140" width="260" height="80" rx="16"/>
+<circle class="d2" cx="68" cy="180" r="8"/>
+<text class="label" x="88" y="192">Sol-Ark</text>
+<rect class="box" x="36" y="238" width="260" height="80" rx="16"/>
+<circle class="d3" cx="68" cy="278" r="8"/>
+<text class="label" x="88" y="290">eGauge</text>
+<rect class="box" x="36" y="336" width="260" height="80" rx="16"/>
+<circle class="d4" cx="68" cy="376" r="8"/>
+<text class="label" x="88" y="388">Daikin</text>
+<circle class="hub" cx="440" cy="82" r="44"/>
+<text class="hubtext" x="440" y="90" text-anchor="middle">MQTT</text>
+<circle class="hub" cx="440" cy="278" r="44"/>
+<text class="hubtext" x="440" y="286" text-anchor="middle">APIs</text>
+<path class="db" d="M582 150 V310 A86 24 0 0 0 754 310 V150"/>
+<ellipse class="db" cx="668" cy="150" rx="86" ry="24"/>
+<text class="dbtext" x="668" y="250" text-anchor="middle">InfluxDB</text>
+<text class="sub" x="664" y="386" text-anchor="middle">Grafana + alerts</text>
+</svg>

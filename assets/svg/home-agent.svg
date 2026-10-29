@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title">
+<title id="title">An AI agent at the center of a house, linked to the solar panels, thermostat, battery, electrical loads, and heat pump</title>
+<style>
+.bg { fill: #f7f4f0; }
+.house { fill: #ffffff; stroke: #3c4043; stroke-width: 4; stroke-linejoin: round; }
+.dev { fill: #ffffff; stroke: #3c4043; stroke-width: 3; }
+.thin { fill: none; stroke: #3c4043; stroke-width: 2.5; }
+.solar { fill: #e4ebf7; stroke: #1f4fa3; stroke-width: 3; }
+.grid { stroke: #1f4fa3; stroke-width: 2; }
+.charge { fill: #2e7d5b; }
+.bolt { fill: #b26a00; }
+.hub { fill: #f3e3e5; stroke: #7a1f2b; stroke-width: 4; }
+.spark { fill: #7a1f2b; }
+.link { fill: none; stroke: #7a1f2b; stroke-width: 3; stroke-dasharray: 8 8; }
+text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 700; }
+.label { fill: #7a1f2b; font-size: 28px; }
+.temp { fill: #1d1d1f; font-size: 27px; }
+@media (prefers-color-scheme: dark) {
+  .bg { fill: #1f2124; }
+  .house, .dev { fill: #26292d; stroke: #c9cdd2; }
+  .thin { stroke: #c9cdd2; }
+  .solar { fill: #1e2a40; stroke: #8fb4ff; }
+  .grid { stroke: #8fb4ff; }
+  .charge { fill: #7fd1a8; }
+  .bolt { fill: #f0b45c; }
+  .hub { fill: #3a2529; stroke: #e3929c; }
+  .spark { fill: #e3929c; }
+  .link { stroke: #e3929c; }
+  .label { fill: #e3929c; }
+  .temp { fill: #e8e6e3; }
+}
+</style>
+<rect class="bg" width="800" height="500"/>
+<path class="house" d="M120 200 L400 46 L680 200 V466 H120 Z"/>
+<g transform="translate(253 115) rotate(-28.8)">
+  <rect class="solar" x="-62" y="-14" width="124" height="28" rx="3"/>
+  <line class="grid" x1="-31" y1="-14" x2="-31" y2="14"/>
+  <line class="grid" x1="0" y1="-14" x2="0" y2="14"/>
+  <line class="grid" x1="31" y1="-14" x2="31" y2="14"/>
+</g>
+<path class="link" d="M362 253 L272 140"/>
+<path class="link" d="M341 290 L267 278"/>
+<path class="link" d="M348 330 L268 377"/>
+<path class="link" d="M459 290 L533 278"/>
+<path class="link" d="M457 320 L694 405"/>
+<circle class="dev" cx="230" cy="272" r="36"/>
+<text class="temp" x="230" y="282" text-anchor="middle">72°</text>
+<rect class="dev" x="219" y="350" width="24" height="12" rx="3"/>
+<rect class="dev" x="196" y="360" width="70" height="78" rx="10"/>
+<rect class="charge" x="208" y="372" width="46" height="14" rx="3"/>
+<rect class="charge" x="208" y="392" width="46" height="14" rx="3"/>
+<rect class="charge" x="208" y="412" width="46" height="14" rx="3"/>
+<circle class="dev" cx="570" cy="272" r="36"/>
+<path class="bolt" d="M574 248 L556 276 H569 L564 298 L584 266 H571 Z"/>
+<rect class="dev" x="698" y="380" width="88" height="82" rx="8"/>
+<circle class="thin" cx="742" cy="421" r="27"/>
+<path class="thin" d="M742 398 V444 M719 421 H765"/>
+<circle class="hub" cx="400" cy="300" r="60"/>
+<path class="spark" d="M400 270 Q404 296 430 300 Q404 304 400 330 Q396 304 370 300 Q396 296 400 270 Z"/>
+<text class="label" x="400" y="398" text-anchor="middle">AI agent</text>
+</svg>

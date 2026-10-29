@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zixuan Qi</title>
-<meta name="description" content="Zixuan Qi, PhD student at Texas A&amp;M. Controls, data, and AI agents for real houses.">
+<meta name="description" content="Zixuan Qi, PhD student at Texas A&amp;M. Home energy systems: modeling, model predictive control, IoT, and AI.">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -13,6 +13,7 @@
     <a class="brand" href="./">Zixuan Qi</a>
     <nav class="nav">
       <a href="#projects">Projects</a>
+      <a href="#testbed">Test houses</a>
       <a href="notes/">Notes</a>
       <a href="#people">People</a>
     </nav>
@@ -23,109 +24,136 @@
   <div class="hero">
     <div>
       <h1>Zixuan Qi</h1>
-      <p class="lead">Hi, I'm Zixuan. I'm a PhD student in mechanical engineering at Texas A&amp;M. Most of my time goes into two small research houses on the RELLIS campus. I wrote the controller that's meant to carry one of them through a blackout on solar and battery power, I look after the data coming out of both, and lately I've been trying to get AI agents to do the boring engineering work a house needs, like checking sensors and fitting models.</p>
+      <p class="lead">Hi, I'm Zixuan, a PhD student in mechanical engineering at Texas A&amp;M. I work on home energy systems, from the sensors on the wall to the decision about when the heat pump runs. I build models of heat pumps and rooms, write optimization-based controllers, connect them to real thermostats, inverters, and relays, and field-test them in one of the two research houses our group runs. I also run the data system behind both houses. On the artificial intelligence (AI) side, I work on multimodal large language models (LLMs) that understand what occupants are doing, a foundation model for home heating and cooling data, and AI agents that take on routine engineering work.</p>
+      <p class="lead">Before Texas A&amp;M, I spent seven years studying heating, ventilation, and air conditioning (HVAC) and building energy at Chongqing University and Tongji University.</p>
       <p class="sub">I'd rather build something that runs in a real house than something that only looks good in a paper.</p>
       <div class="links">
         <a class="btn" href="mailto:qizixuan@tamu.edu">qizixuan@tamu.edu</a>
         <a class="btn" href="https://github.com/mrkey4real">GitHub</a>
-        <a class="btn" href="https://hvac.engr.tamu.edu/tamscht">The test houses</a>
+        <a class="btn" href="#testbed">The test houses</a>
       </div>
-      <p class="callout">I'm looking for a Summer 2027 internship in home energy, HVAC controls, or IoT.</p>
+      <p class="callout">I'm looking for a Summer 2027 internship in home energy management systems (HEMS), HVAC controls, optimization, or the Internet of Things (IoT).</p>
     </div>
-    <figure>
-      <img src="assets/img/homes.jpg" alt="Two single-story research houses side by side on an open field" width="1600" height="1200">
-      <figcaption>The two houses of the <a href="https://hvac.engr.tamu.edu/tamscht">Texas A&amp;M Smart and Connected Homes Testbed (TAM-SCHT)</a>.</figcaption>
+    <figure class="portrait">
+      <img src="assets/img/zixuan.jpg" alt="Zixuan Qi standing in a green rice field at dusk" width="900" height="900">
     </figure>
   </div>
 
   <section id="skills">
     <h2>What I'm good at</h2>
     <ul class="skills">
-      <li><strong>Control.</strong> Model predictive control for heat pumps, batteries, and household loads.</li>
-      <li><strong>Real hardware.</strong> Thermostats, inverters, sensors, Home Assistant, Raspberry Pi.</li>
-      <li><strong>Data.</strong> Getting readings from devices into the cloud, with dashboards and alerts.</li>
-      <li><strong>AI for buildings.</strong> Time-series models, and LLM agents that work on building data.</li>
-      <li><strong>Simulation.</strong> EnergyPlus, including big batches on an HPC cluster.</li>
+      <li><strong>Modeling.</strong> Heat pump performance models, resistance-capacitance (RC) models of room temperature, and EnergyPlus, from co-simulation with Functional Mock-up Units (FMUs) to thousands of runs on a university high-performance computing cluster.</li>
+      <li><strong>Control and optimization.</strong> Model predictive control (MPC) built on mixed-integer linear programming (MILP), with cvxpy and HiGHS.</li>
+      <li><strong>Hardware and IoT.</strong> Raspberry Pi relay control, Home Assistant (including an integration I wrote), Zigbee and millimeter-wave presence sensors, MQTT messaging, and vendor application programming interfaces (APIs) for thermostats and inverters.</li>
+      <li><strong>Data.</strong> Pipelines that bring LabVIEW, inverter, meter, and thermostat data into InfluxDB and Grafana on Amazon Web Services, with watchdogs that email us when data stops.</li>
+      <li><strong>AI.</strong> PyTorch, time-series foundation models, multimodal LLMs, and LLM agents.</li>
+      <li><strong>Software.</strong> Python, Linux, Git, pytest, and Slurm.</li>
     </ul>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="grid">
+      <article class="card feature">
+        <img class="fig" src="assets/img/llm-occ-overview.jpg" alt="Diagram from the paper: camera footage goes to an LLM module that infers occupant intention and sends schedules to an MPC module controlling the HVAC" loading="lazy" width="1600" height="1010">
+        <div class="body">
+          <span class="tag">Published</span>
+          <h3>An LLM that sees what you're doing</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>A thermostat follows a fixed schedule. It can't tell whether you're asleep, cooking, or working out.</dd>
+            <dt>What I did</dt><dd>Paired a multimodal LLM with MPC. The LLM watches camera footage, works out what the occupant is doing and is about to do, and turns that into schedules for metabolic rate, clothing, appliances, and windows. The MPC then plans the heat pump using an RC model of the rooms fitted from measured data and a heat pump model fitted from catalog data.</dd>
+            <dt>Status</dt><dd><a href="https://doi.org/10.1016/j.adapen.2026.100283">Published in <em>Advances in Applied Energy</em>, 2026</a>. In a simulation driven by 13 hours of real video, it cut HVAC electricity by 60% and discomfort (unmet degree-hours) by 48%, compared with the same MPC on standard U.S. Department of Energy (DOE) schedules.</dd>
+          </dl>
+        </div>
+      </article>
       <article class="card">
-        <img src="assets/img/pv-array.jpg" alt="Ground-mounted solar panels next to the test houses" loading="lazy" width="1600" height="651">
+        <img src="assets/img/racer-pi.jpg" alt="Raspberry Pi wired through a breadboard to an eight-channel relay board" loading="lazy" width="1020" height="638">
         <div class="body">
           <span class="tag">Field-tested</span>
           <h3>Getting through a blackout</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>When the grid goes down, a house with solar and a battery has to make its stored energy last.</dd>
-            <dt>What I did</dt><dd>Wrote the controller that decides when the heat pump and other loads run, and tested it in one of our houses.</dd>
-            <dt>Status</dt><dd>Field-tested in fall 2026, paper in progress. Part of a DOE project led by Slipstream.</dd>
+            <dt>Problem</dt><dd>When the grid goes down, a home with solar and a battery has to make its stored energy last and still keep the house livable.</dd>
+            <dt>What I did</dt><dd>Rewrote the project's MPC code. Every 15 minutes it solves a MILP that plans the next 12 hours for the heat pump and other household loads, using an RC model of the house, heat pump performance curves, and the battery's charge. It runs the heat pump through the Daikin API and switches a stand-in household load with a relay on a Raspberry Pi.</dd>
+            <dt>Status</dt><dd>Field-tested for three days in one of our houses in September 2026. Paper in progress. Part of a DOE-funded project led by Slipstream.</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <img src="assets/img/daq-desk.jpg" alt="Data-acquisition computer and sensor cabinet inside a test house" loading="lazy" width="1600" height="1200">
-        <div class="body">
-          <span class="tag">Running daily</span>
-          <h3>Data from two research houses</h3>
-          <dl class="glance">
-            <dt>Problem</dt><dd>Readings from our two houses kept getting lost on the way to the database.</dd>
-            <dt>What I did</dt><dd>Took over the data system for about 300 sensor points and rebuilt how readings reach the cloud, with alerts when anything stops.</dd>
-            <dt>Status</dt><dd>Running. The field tests in both houses use its data.</dd>
-          </dl>
-        </div>
-      </article>
-      <article class="card">
-        <img src="assets/img/west-bedroom.jpg" alt="Bedroom of a test house with sensors on the walls" loading="lazy" width="1600" height="1200">
+        <img src="assets/img/dari-team.jpg" alt="Four members of the dementia-care project team giving a thumbs-up in a kitchen" loading="lazy" width="306" height="204">
         <div class="body">
           <span class="tag">Ongoing</span>
           <h3>A smart home for dementia care</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>Families caring for someone with dementia want to know about falls without watching a camera all day.</dd>
-            <dt>What I did</dt><dd>Set up the smart-home system in a test house and wrote the piece that reads fall alerts from ceiling radars.</dd>
-            <dt>Status</dt><dd>Field tests started in fall 2026. Funded by Texas A&amp;M Health.</dd>
+            <dt>Problem</dt><dd>Families caring for someone with dementia want to know when something goes wrong, like a fall, without watching a camera all day.</dd>
+            <dt>What I did</dt><dd>Set up and integrated a Home Assistant-based monitoring system in one of our test houses. My part focuses on presence detection for catching events such as falls, and on tracking activities of daily living.</dd>
+            <dt>Status</dt><dd>Two rounds of field tests in October 2026. Funded by Texas A&amp;M Health.</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <img src="assets/img/homes-hill.jpg" alt="The two research houses seen from a small hill" loading="lazy" width="1600" height="1200">
+        <img src="assets/svg/data-pipeline.svg" alt="LabVIEW data arrives over MQTT, and Sol-Ark, eGauge, and Daikin data come through vendor APIs, all into InfluxDB" loading="lazy" width="800" height="500">
+        <div class="body">
+          <span class="tag">Running daily</span>
+          <h3>One database for two research houses</h3>
+          <dl class="glance">
+            <dt>Problem</dt><dd>Each house runs several data systems, each with its own format, and many readings never reached the database.</dd>
+            <dt>What I did</dt><dd>Rebuilt and now run the pipeline that integrates the houses' sensor systems into one database: LabVIEW data acquisition with more than 200 sensors, Sol-Ark inverters, eGauge power meters, and Daikin thermostats. Readings land in InfluxDB with Grafana dashboards. I redesigned the LabVIEW upload, moved it to our own MQTT server, added the second house's thermostat, and wrote a watchdog that emails us when any stream stops.</dd>
+            <dt>Status</dt><dd>Running every day. Our field tests use its data.</dd>
+          </dl>
+        </div>
+      </article>
+      <article class="card">
+        <img src="assets/svg/many-homes.svg" alt="Six different houses connected to a single box that asks: one model?" loading="lazy" width="800" height="500">
         <div class="body">
           <span class="tag">Ongoing</span>
           <h3>One model for many homes</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>Every home's HVAC behaves a bit differently, so models usually need data from each home first.</dd>
-            <dt>What I'm doing</dt><dd>Training one model on thousands of simulated homes so it can handle homes it has never seen.</dd>
+            <dt>Problem</dt><dd>Every home's HVAC behaves differently, so a data-driven model usually has to learn each new home from its own data first.</dd>
+            <dt>What I'm doing</dt><dd>Building a time-series foundation model for home HVAC, one model meant to work in homes it has never seen.</dd>
             <dt>Status</dt><dd>In progress.</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <img src="assets/img/living-room.jpg" alt="Living room of a test house with comfort sensors on tripods" loading="lazy" width="1600" height="1200">
+        <img src="assets/svg/office-agent.svg" alt="Four people talking with one AI agent that sets a shared thermostat" loading="lazy" width="800" height="500">
         <div class="body">
-          <span class="tag">Published</span>
-          <h3>An LLM that sees what you're doing</h3>
+          <span class="tag">Experiments done</span>
+          <h3>An AI agent that listens to everyone in the office</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>A thermostat doesn't know if you're asleep, cooking, or working out.</dd>
-            <dt>What I did</dt><dd>Had a multimodal LLM read what the person is doing from video and pass that to the controller.</dd>
-            <dt>Status</dt><dd>In simulation it cut HVAC electricity by 60% compared with the same controller on default schedules. <a href="https://doi.org/10.1016/j.adapen.2026.100283">Published in 2026</a>.</dd>
+            <dt>Problem</dt><dd>In a shared office, one temperature rarely suits everyone, and the usual approach aims for the average person.</dd>
+            <dt>What I did</dt><dd>Built an AI agent that talks with the people in a shared office and adjusts the heating and cooling so that comfort is shared more fairly.</dd>
+            <dt>Status</dt><dd>Tested in simulation. Paper in preparation.</dd>
           </dl>
         </div>
       </article>
       <article class="card">
-        <img src="assets/img/mech-room.jpg" alt="Mechanical room of a test house with the inverter, battery, and wiring" loading="lazy" width="1200" height="1600">
+        <img src="assets/svg/home-agent.svg" alt="An AI agent at the center of a house, linked to the solar panels, thermostat, battery, electrical loads, and heat pump" loading="lazy" width="800" height="500">
         <div class="body">
           <span class="tag">Ongoing</span>
-          <h3>AI agents as building engineers</h3>
+          <h3>An AI agent that lives in your home's energy system</h3>
           <dl class="glance">
-            <dt>Problem</dt><dd>Buildings need routine engineering work, and most homes have no engineer.</dd>
-            <dt>What I'm doing</dt><dd>Testing whether a general AI agent can do that work on a real house's data.</dd>
+            <dt>Problem</dt><dd>Homes now have heat pumps, batteries, and smart thermostats, but nobody looks after them the way a building engineer would.</dd>
+            <dt>What I'm doing</dt><dd>Working toward an AI agent that lives inside a home energy management system and does that engineering work by itself.</dd>
             <dt>Status</dt><dd>Early pilot runs, fall 2026.</dd>
           </dl>
         </div>
       </article>
     </div>
-    <p class="aside">I also put two small open-source tools on <a href="https://buildrixhub.onrender.com/">Buildrix</a>, a hub of building-engineering tools for AI agents: one fits <a href="https://buildrixhub.onrender.com/#/skills/SSIM-0001">heat-pump performance curves</a>, the other runs <a href="https://buildrixhub.onrender.com/#/skills/SCTL-0003">EnergyPlus co-simulation</a> from Python.</p>
+    <p class="aside">I also put two small open-source tools on <a href="https://buildrixhub.onrender.com/">Buildrix</a>, a hub of building-engineering tools for AI agents. One fits <a href="https://buildrixhub.onrender.com/#/skills/SSIM-0001">heat pump performance curves</a>. The other runs <a href="https://buildrixhub.onrender.com/#/skills/SCTL-0003">EnergyPlus co-simulation</a> from Python.</p>
+  </section>
+
+  <section id="testbed">
+    <h2>The test houses</h2>
+    <p class="prose">My field work happens in the <a href="https://hvac.engr.tamu.edu/tamscht">Texas A&amp;M Smart and Connected Homes Testbed (TAM-SCHT)</a> on the RELLIS campus in Bryan, Texas. It has two identical 1,200 ft² houses with three bedrooms and two bathrooms each. Each house has a heat pump, solar panels, a 9.6 kWh battery, and a LabVIEW system that logs its sensors and drives load emulators that follow hourly load profiles.</p>
+    <div class="gallery">
+      <figure><img src="assets/img/homes.jpg" alt="Two single-story research houses side by side on an open field" loading="lazy" width="1000" height="750"><figcaption>The two houses.</figcaption></figure>
+      <figure><img src="assets/img/homes-hill.jpg" alt="The two research houses seen from a small hill" loading="lazy" width="1000" height="750"><figcaption>Seen from a small hill.</figcaption></figure>
+      <figure><img src="assets/img/pv-array.jpg" alt="Ground-mounted solar panels next to the test houses" loading="lazy" width="1000" height="407"><figcaption>The solar array.</figcaption></figure>
+      <figure><img src="assets/img/mech-room.jpg" alt="Mechanical room of a test house with the inverter, battery, and wiring" loading="lazy" width="750" height="1000"><figcaption>Inverter and battery.</figcaption></figure>
+      <figure><img src="assets/img/daq-desk.jpg" alt="Data-acquisition computer and sensor cabinet inside a test house" loading="lazy" width="1000" height="750"><figcaption>The data acquisition station.</figcaption></figure>
+      <figure><img src="assets/img/living-room.jpg" alt="Living room of a test house with comfort sensors on tripods" loading="lazy" width="1000" height="750"><figcaption>Comfort sensors in the living room.</figcaption></figure>
+      <figure><img src="assets/img/west-bedroom.jpg" alt="Bedroom of a test house with sensors on the walls" loading="lazy" width="1000" height="750"><figcaption>Sensors on the bedroom walls.</figcaption></figure>
+    </div>
   </section>
 
   <section id="notes">

@@ -42,6 +42,7 @@ PAGE = """<!doctype html>
     <a class="brand" href="../">Zixuan Qi</a>
     <nav class="nav">
       <a href="../#projects">Projects</a>
+      <a href="../#testbed">Test houses</a>
       <a href="./">Notes</a>
       <a href="../#people">People</a>
     </nav>

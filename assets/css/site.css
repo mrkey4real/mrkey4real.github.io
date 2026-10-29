@@ -61,13 +61,13 @@ code {
   border-bottom: 1px solid var(--line);
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
-.brand { font-weight: 700; color: var(--text); }
+.brand { font-weight: 700; color: var(--text); white-space: nowrap; }
 .brand:hover { text-decoration: none; }
 .nav a { color: var(--muted); margin-left: 20px; font-size: 15px; }
 .nav a:hover { color: var(--text); text-decoration: none; }
 
 /* Home hero */
-.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; padding: 52px 0 36px; }
+.hero { display: grid; grid-template-columns: 1.7fr 1fr; gap: 40px; align-items: center; padding: 52px 0 36px; }
 .hero h1 { font-size: 44px; line-height: 1.1; margin: 0 0 14px; }
 .lead { font-size: 18px; line-height: 1.6; margin: 0 0 12px; }
 .sub { color: var(--muted); margin: 0 0 20px; }
@@ -92,7 +92,7 @@ code {
 
 figure { margin: 0; }
 figcaption { color: var(--muted); font-size: 14px; line-height: 1.5; margin-top: 8px; }
-.hero figure img { border-radius: var(--radius); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.portrait img { border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; width: 100%; max-width: 360px; margin-left: auto; }
 
 /* Sections */
 section { padding: 36px 0; border-top: 1px solid var(--line); }
@@ -105,7 +105,7 @@ section > h2 + .aside { margin: -8px 0 10px; }
 .skills li, .people li { margin-bottom: 8px; }
 
 /* Project cards */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -115,6 +115,10 @@ section > h2 + .aside { margin: -8px 0 10px; }
   flex-direction: column;
 }
 .card img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; }
+.card img.fig { object-fit: contain; background: #ffffff; }
+.card.feature { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+.card.feature img { align-self: center; aspect-ratio: 1600 / 1010; padding: 12px; }
+.card.feature .body { border-left: 1px solid var(--line); }
 .card .body { padding: 16px 18px 18px; }
 .card h3 { font-size: 18px; line-height: 1.35; margin: 0 0 4px; }
 .tag {
@@ -136,6 +140,12 @@ section > h2 + .aside { margin: -8px 0 10px; }
   margin-top: 10px;
 }
 .glance dd { margin: 2px 0 0; font-size: 15px; line-height: 1.5; }
+
+/* Test-house photos */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 18px; }
+.gallery figure:first-child { grid-column: span 2; }
+.gallery img { height: 180px; width: 100%; object-fit: cover; border-radius: 10px; }
+.gallery figcaption { margin-top: 6px; }
 
 /* Lists */
 .pubs li { margin-bottom: 12px; }
@@ -163,12 +173,29 @@ section > h2 + .aside { margin: -8px 0 10px; }
 footer { border-top: 1px solid var(--line); padding: 24px 0 44px; color: var(--muted); font-size: 14px; }
 footer p { margin: 4px 0; }
 
+@media (max-width: 960px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 760px) {
   body { font-size: 16px; }
+  .grid { grid-template-columns: 1fr; }
+  .card.feature { display: flex; }
+  .card.feature img { aspect-ratio: 16 / 10; padding: 0; }
+  .card.feature .body { border-left: 0; }
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .gallery img { height: 130px; }
   .hero { grid-template-columns: 1fr; padding-top: 32px; gap: 24px; }
+  .portrait { order: -1; }
+  .portrait img { max-width: 200px; margin-left: 0; }
   .hero h1 { font-size: 36px; }
   .lead { font-size: 17px; }
   .nav a { margin-left: 14px; }
   .page-head h1, .post h1 { font-size: 30px; }
   .edu li { flex-direction: column; gap: 2px; }
+}
+
+/* Phones: hide the Test houses link so the header stays on one line. */
+@media (max-width: 440px) {
+  .nav a[href$="#testbed"] { display: none; }
 }
