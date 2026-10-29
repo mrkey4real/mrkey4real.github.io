@@ -61,8 +61,8 @@
           <h3>An LLM that sees what you're doing</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>A thermostat follows a fixed schedule. It can't tell whether you're asleep, cooking, or working out.</dd>
-            <dt>What I did</dt><dd>Paired a multimodal LLM with MPC. The LLM watches camera footage, works out what the occupant is doing and is about to do, and turns that into schedules for metabolic rate, clothing, appliances, and windows. The MPC then plans the heat pump using an RC model of the rooms fitted from measured data and a heat pump model fitted from catalog data.</dd>
-            <dt>Status</dt><dd><a href="https://doi.org/10.1016/j.adapen.2026.100283">Published in <em>Advances in Applied Energy</em>, 2026</a>. In a simulation driven by 13 hours of real video, it cut HVAC electricity by 60% and discomfort (unmet degree-hours) by 48%, compared with the same MPC on standard U.S. Department of Energy (DOE) schedules.</dd>
+            <dt>What I did</dt><dd>Designed and built a system that pairs a multimodal LLM with MPC. The LLM watches camera footage, works out what the occupant is doing and is about to do, and turns that into schedules for metabolic rate, clothing, appliances, and windows. The MPC then plans the heat pump using an RC model of the rooms fitted from measured data and a heat pump model fitted from catalog data.</dd>
+            <dt>Status</dt><dd>Published as first author in <a href="https://doi.org/10.1016/j.adapen.2026.100283"><em>Advances in Applied Energy</em>, 2026</a>. In a simulation driven by 13 hours of real video, it cut HVAC electricity by 60% and discomfort (unmet degree-hours) by 48%, compared with the same MPC on standard U.S. Department of Energy (DOE) schedules.</dd>
           </dl>
         </div>
       </article>
@@ -73,7 +73,7 @@
           <h3>Building thermal resilience</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>When the grid goes down, a home with solar and a battery has to make its stored energy last and still keep the house livable.</dd>
-            <dt>What I did</dt><dd>Built the MPC controller. Every 15 minutes it solves a MILP that plans the next 12 hours for the heat pump and other household loads, using an RC model of the house, heat pump performance curves, and the battery's charge. It runs the heat pump through the Daikin API and switches a stand-in household load with a relay on a Raspberry Pi.</dd>
+            <dt>What I did</dt><dd>Built the MPC controller, set up its field test, and analyzed the results. Every 15 minutes the controller solves a MILP that plans the next 12 hours for the heat pump and other household loads, using an RC model of the house, heat pump performance curves, and the battery's charge. It runs the heat pump through the Daikin API and switches a stand-in household load with a relay on a Raspberry Pi.</dd>
             <dt>Status</dt><dd>Field-tested for three days in one of our houses in September 2026. Paper in progress. Part of a DOE-funded project led by Slipstream.</dd>
           </dl>
         </div>
@@ -85,8 +85,8 @@
           <h3>A smart home for dementia care</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>Families caring for someone with dementia want to know when something goes wrong, like a fall, without watching a camera all day.</dd>
-            <dt>What I did</dt><dd>Set up and integrated a Home Assistant-based monitoring system in one of our test houses. My part focuses on presence detection for catching events such as falls, and on tracking activities of daily living.</dd>
-            <dt>Status</dt><dd>Two rounds of field tests in October 2026. Funded by Texas A&amp;M Health.</dd>
+            <dt>What I did</dt><dd>I handle the technical side of the study. I set up and integrated a Home Assistant-based monitoring system in one of our test houses, focused on presence detection for catching events such as falls and on tracking activities of daily living.</dd>
+            <dt>Status</dt><dd>I co-led two rounds of field tests in October 2026. Funded by Texas A&amp;M Health.</dd>
           </dl>
         </div>
       </article>
@@ -109,7 +109,7 @@
           <h3>One model for many homes</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>Every home's HVAC behaves differently, so a data-driven model usually has to learn each new home from its own data first.</dd>
-            <dt>What I'm doing</dt><dd>Building a time-series foundation model for home HVAC, one model meant to work in homes it has never seen.</dd>
+            <dt>What I'm doing</dt><dd>I'm building a time-series foundation model for home HVAC, one model meant to work in homes it has never seen.</dd>
             <dt>Status</dt><dd>In progress.</dd>
           </dl>
         </div>
@@ -121,8 +121,8 @@
           <h3>An AI agent that listens to everyone in the office</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>In a shared office, one temperature rarely suits everyone, and the usual approach aims for the average person.</dd>
-            <dt>What I did</dt><dd>Built an AI agent that talks with the people in a shared office and adjusts the heating and cooling so that comfort is shared more fairly.</dd>
-            <dt>Status</dt><dd>Tested in simulation. Paper in preparation.</dd>
+            <dt>What I did</dt><dd>Designed an AI agent that talks with the people in a shared office and adjusts the heating and cooling so that comfort is shared more fairly, and built the simulation to test it.</dd>
+            <dt>Status</dt><dd>Writing the paper as first author.</dd>
           </dl>
         </div>
       </article>
@@ -133,8 +133,8 @@
           <h3>An AI agent that lives in your home's energy system</h3>
           <dl class="glance">
             <dt>Problem</dt><dd>Homes now have heat pumps, batteries, and smart thermostats, but nobody looks after them the way a building engineer would.</dd>
-            <dt>What I'm doing</dt><dd>Working toward an AI agent that lives inside a home energy management system and does that engineering work by itself.</dd>
-            <dt>Status</dt><dd>Early pilot runs, fall 2026.</dd>
+            <dt>What I'm doing</dt><dd>I'm designing an AI agent that lives inside a home energy management system and does that engineering work by itself.</dd>
+            <dt>Status</dt><dd>First pilot runs in October 2026.</dd>
           </dl>
         </div>
       </article>
